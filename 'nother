@@ -1,0 +1,43 @@
+#_Madlib project
+#adj = input("Adjective: "); verb = input("Verb: "); verb2 = input("verb2: "); famous_person = input("famous_person: ")
+#madlib = f"Computer programming is so {adj}! Its quite exciting because it makes me{verb}.\
+#Stay hydrated and {verb2} like you are a {famous_person}"
+#print(madlib)
+#_End for madlib
+
+
+
+
+#_Guess the number (computer)
+#import random
+#from random import randint
+#def guess(x):
+#    random_number = random.randint(1,x) #returning a random integer in the range of 1 to x
+#    guess = 0 #default 0 bcuz we dont want our guess to ever equal any integer generated. remember range starts from 1
+#    while guess != random_number:
+#        guess = int(input(f"Guess a number between 1 and {x}: "))
+#        if guess < random_number:
+#            print("Too low")
+#        elif guess > random_number:
+#            print("Too high")
+#    print(f"Correct guess. It was {random_number}")#loop breaks to print this as soon as guess equal to random number
+#guess(10)
+
+
+#_Guess the number (User)
+import random
+from random import randint
+def computer_guess(x):
+    low = 1; high = x; feedback = ''
+    while feedback != 'c':
+        if low != high: #this bcuz random module would throw AN ERROR if l and h are the same number
+            guess = random.randint(low, high)
+        else:
+            guess = low #could also be high because low = high too
+        feedback = input(f"Is {guess} too high(H),too low(L) or correct(C)").lower()
+        if feedback == 'h':
+            high = guess - 1
+        elif feedback == 'l':
+            low = guess + 1
+    print(f"Computer guess {guess} correct")
+computer_guess(10)
