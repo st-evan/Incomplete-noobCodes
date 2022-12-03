@@ -1,0 +1,28 @@
+class pickle_stuff():
+    def list_here(self):
+        lst = []
+        y = int(input("How many elements in list? ")) # Number of elements in list
+        # Appending inputted values to list(lst) using a for-loop
+        for i in range(0, y): # will iterate until value of 'y'
+            enter_elements = int(input("Enter values: "))
+            lst.append(enter_elements)
+        # end
+        # return lst wtf? wanted to return but doesn't work for some weird reason.
+        import pickle
+        pickl_fy = open('pickled.list','wb') # Assigning the file 'pickled.list' to the var 'pickl_fy'
+        pickle.dump(lst, pickl_fy) # Moving values of the list to the file 'pickl_fy'
+        pickl_fy.close() # Very important to close resources lol
+
+from Cake import pickle_stuff # From the module 'cake' import class 'pickle_stuff'
+Damn_Pickles = pickle_stuff # 'Damn_Pickles' Obj of the class 'pickle_stuff'
+Damn_Pickles.list_here('null') # Obj of 'pickle_stuff' calling the method 'list_here'
+# Passed null cuz dumb thing kept asking for a parameter even tho I passed self. It's supposed to automatically call itself *smh
+
+import pickle
+Depickl_fy = open('pickled.list','rb') # Opening 'pickled.list' file in read only mode and assigning that to the var 'Depickl_fy'
+lst = pickle.load(Depickl_fy) # loading contents of 'Depickl_fy' back to the var 'lst'
+print("Here's your depickled list", lst) # lst can now be used anywhere in any operation pre_processed.
+
+#This was fun. Happy assessment
+
+
